@@ -1,0 +1,3496 @@
+;
+; Events text for the Midgard Scenario
+; Copyright(c) 1999, MicroProse Studios Inc.
+; 
+;
+
+@BEGINEVENTS
+
+@INITFLAG
+
+@IF
+SCENARIOLOADED
+@THEN
+PLAYCDTRACK
+10
+DONTPLAYWONDERS
+@ENDIF
+
+@IF
+NOSCHISM
+DEFENDER=anybody 
+@THEN
+@ENDIF
+
+; set flags for frost giant allegience, griffin allegience, and minion
+; production, and announce knowledge of runes
+
+@IF
+TURN
+turn=1
+@THEN
+FLAG
+continuous
+mask=0x84000800
+state=on
+@ENDIF
+
+@IF
+RECEIVEDTECHNOLOGY
+receiver=Anybody
+technology=44
+@THEN
+JUSTONCE
+PLAYWAVEFILE
+Fanfare7.wav
+TEXT
+Someone has finally managed to decipher the long forgotten runic language.  Are you
+that person? If not, you might consider learning Runes as many important messages 
+are written in that script. 
+ENDTEXT
+@ENDIF
+
+;random appearance of barbarian minions
+
+@IF
+RANDOMTURN     
+denominator=50
+@THEN
+DELAY
+delay=70
+CREATEUNIT
+owner=Barbarians
+unit=S Night Rider
+veteran=no
+homecity=none
+randomize
+locations
+24,78,1
+14,34,1
+100,52,1
+43,139,1
+20,138,1
+87,19,1
+95,109,1
+50,28,1
+endlocations
+@ENDIF
+
+@IF
+RANDOMTURN     
+denominator=33
+@THEN
+DELAY
+delay=25
+CREATEUNIT
+owner=Barbarians
+unit=Jrmngnd Spit
+veteran=no
+homecity=none
+randomize
+locations
+82,4,0
+82,6,0
+81,5,0
+81,3,0
+83,5,0
+83,3,0
+82,2,0
+endlocations
+@ENDIF
+
+@IF
+RANDOMTURN     
+denominator=100
+@THEN
+DELAY
+delay=25
+CREATEUNIT
+owner=Barbarians
+unit=Dragon 
+veteran=no
+homecity=none
+randomize
+locations
+62,18,0
+78,22,0
+61,29,0
+112,14,0
+103,21,0
+endlocations
+@ENDIF
+
+@IF
+RANDOMTURN     
+denominator=33
+@AND
+CHECKFLAG
+who=EVERYBODY
+flag=26
+state=on
+@THEN
+DELAY
+delay=25
+CREATEUNIT
+owner=Barbarians
+unit=S Skeleton 
+veteran=no
+homecity=none
+randomize
+locations
+65,123,0
+65,117,0
+71,63,0
+52,46,0
+51,73,0
+endlocations
+@ENDIF
+
+@IF
+RANDOMTURN     
+denominator=50
+@AND
+CHECKFLAG
+who=EVERYBODY
+flag=26
+state=on
+@THEN
+DELAY
+delay=25
+CREATEUNIT
+owner=Barbarians
+unit=Great Bats 
+veteran=no
+homecity=none
+randomize
+locations
+65,123,0
+65,117,0
+71,63,0
+52,46,0
+51,73,0
+endlocations
+@ENDIF
+
+@IF
+RANDOMTURN     
+denominator=33
+@AND
+CHECKFLAG
+who=EVERYBODY
+flag=26
+state=on
+@THEN
+DELAY
+delay=25
+CREATEUNIT
+owner=Barbarians
+unit=G Crag Wolf 
+veteran=no
+homecity=none
+randomize
+locations
+65,123,0
+65,117,0
+71,63,0
+52,46,0
+51,73,0
+endlocations
+@ENDIF
+
+@IF
+RANDOMTURN     
+denominator=33
+@AND
+CHECKFLAG
+who=EVERYBODY
+flag=19
+state=on
+@THEN
+CREATEUNIT
+owner=Barbarians
+unit=Dwarf 
+veteran=no
+homecity=none
+randomize
+locations
+73,25,0
+73,25,0
+65,25,0
+56,20,0
+107,19,0
+endlocations
+@ENDIF
+
+@IF
+RANDOMTURN     
+denominator=33
+@AND
+CHECKFLAG
+who=EVERYBODY
+mask=0x04080000
+count=2
+state=on
+@THEN
+CREATEUNIT
+owner=Barbarians
+unit=S Fell Wraith 
+veteran=no
+homecity=none
+randomize
+locations
+65,123,0
+65,117,0
+71,63,0
+52,46,0
+51,73,0
+endlocations
+@ENDIF
+
+@IF
+RANDOMTURN     
+denominator=50
+@AND
+CHECKFLAG
+who=EVERYBODY
+mask=0x04080000
+count=2
+state=on
+@THEN
+CREATEUNIT
+owner=Barbarians
+unit=S Witch 
+veteran=no
+homecity=none
+randomize
+locations
+65,123,3
+65,117,3
+6,100,3
+88,124,3
+66,52,3
+endlocations
+@ENDIF
+
+@IF
+RANDOMTURN     
+denominator=50
+@AND
+CHECKFLAG
+who=EVERYBODY
+mask=0x04100000
+count=2
+state=on
+@THEN
+CREATEUNIT
+owner=Barbarians
+unit=M Kraken 
+veteran=no
+homecity=none
+locations
+60,38,2
+60,62,2
+64,96,2
+115,69,2
+116,102,2
+108,76,2
+endlocations
+@ENDIF
+
+@IF
+RANDOMTURN     
+denominator=50
+@AND
+CHECKFLAG
+who=EVERYBODY
+mask=0x04200000
+count=2
+state=on
+@THEN
+CREATEUNIT
+owner=Barbarians
+unit=Worm 
+veteran=no
+homecity=none
+randomize
+locations
+63,79,2
+65,31,2
+88,104,2
+48,40,2
+109,109,2
+endlocations
+@ENDIF
+
+@IF
+RANDOMTURN     
+denominator=33
+@AND
+CHECKFLAG
+who=EVERYBODY
+mask=0x04100800
+count=3
+state=on
+@THEN
+CREATEUNIT
+owner=Barbarians
+unit=B Griffin 
+veteran=no
+homecity=none
+locations
+5,103,3
+70,68,3
+65,119,3
+66,112,3
+118,62,3
+endlocations
+@ENDIF
+
+@IF
+RANDOMTURN     
+denominator=33
+@AND
+CHECKFLAG
+who=EVERYBODY
+mask=0x04400000
+count=2
+state=on
+@THEN
+CREATEUNIT
+owner=Barbarians
+unit=Warlock 
+veteran=no
+homecity=none
+locations
+2,106,3
+72,80,3
+66,42,3
+71,87,3
+67,125,3
+8,106,3
+endlocations
+@ENDIF
+
+@IF
+RANDOMTURN
+denominator=50
+@AND
+CHECKFLAG
+who=EVERYBODY
+mask=0x84400000
+count=3
+state=on
+@THEN
+CREATEUNIT
+owner=Barbarians
+unit=Frost Giant 
+veteran=no
+homecity=none
+locations
+60,34,0
+57,65,0
+61,65,0
+60,46,0
+60,86,0
+61,65,0
+62,92,0
+54,58,0
+64,46,0
+65,103,0
+endlocations
+@ENDIF
+
+;initial spread of corruption 
+
+@IF
+TURN
+turn=150
+@THEN
+DELAYPERFLAG
+randomize
+basedelay=50
+perflagdelay=20
+mask=0x000003FF
+TEXT
+After centuries of imprisonment, Volsang suddenly detects a slight loosening
+of his magical bonds. He decides to test his returning powers. His vile 
+corruption begins to creep over the world.
+ENDTEXT
+CHANGETERRAIN
+terraintype=9
+map=0
+exceptionmask=0x0624 
+maprect
+56,110,74,110,74,134,56,134
+PLAYAVIFILE
+Scene9a.avi
+FLAG
+continuous
+flag=19
+state=on
+@ENDIF
+
+;corruption round 2
+
+@IF
+CHECKFLAG
+who=EVERYBODY
+flag=19
+state=on
+@THEN
+JUSTONCE	
+DELAYPERFLAG
+randomize
+basedelay=50
+perflagdelay=20
+mask=0x000003FF
+TEXT
+Volsang's magical bonds suddenly loosen further; 
+with greater confidence, he tests his powers. No 
+person and no city, even those allied to him, can 
+survive his spreading all-pervasive corruption.
+ENDTEXT
+CHANGETERRAIN
+terraintype=9
+map=0
+exceptionmask=0x0620 
+maprect
+56,110,74,110,74,134,56,134
+PLAYAVIFILE
+Scene9b.avi
+FLAG
+continuous
+flag=20
+state=on
+@ENDIF
+
+;corruption round 3
+
+@IF
+CHECKFLAG
+WHO=EVERYBODY
+mask=0x00180000
+count=2
+state=on
+@THEN	
+JUSTONCE
+DELAYPERFLAG
+randomize
+basedelay=50
+perflagdelay=20
+mask=0x000003FF
+TEXT
+Yet another weakening of Volsang's magical bonds occurs; all of the races 
+begin to exhibit real fear now. Can anyone stop Volsang before he breaks 
+completely free?
+ENDTEXT
+CHANGETERRAIN
+terraintype=9
+map=0
+exceptionmask=0x0620 
+maprect
+44,98,86,98,86,152,44,152
+PLAYAVIFILE
+Scene9b.avi
+FLAG
+continuous
+flag=21
+state=on
+@ENDIF
+
+;corruption round 4
+
+@IF
+CHECKFLAG
+WHO=EVERYBODY
+mask=0x00380000
+count=3
+state=on
+@THEN	
+JUSTONCE
+DELAYPERFLAG
+randomize
+basedelay=50
+perflagdelay=20
+mask=0x000003FF
+TEXT
+Volsang's confidence grows as he detects a further weakening of his 
+magical bonds and no champion in sight to challenge his reemergence.
+ENDTEXT
+CHANGETERRAIN
+terraintype=9
+map=0
+exceptionmask=0x0620 
+maprect
+33,85,99,85,99,161,33,161
+PLAYAVIFILE
+Scene9b.avi
+FLAG
+continuous
+flag=22
+state=on
+@ENDIF
+
+@IF
+CHECKFLAG
+WHO=EVERYBODY
+flag=22
+state=on
+@THEN
+JUSTONCE
+CHANGETERRAIN
+terraintype=9
+map=0
+exceptionmask=0x0620 
+maprect
+15,60,32,60,32,100,15,100
+@ENDIF
+
+@IF
+CHECKFLAG
+WHO=EVERYBODY
+flag=22
+state=on
+@THEN
+JUSTONCE
+CHANGETERRAIN
+terraintype=9
+map=0
+exceptionmask=0x0620 
+maprect
+15,100,22,100,22,160,15,160
+@ENDIF
+
+@IF
+CHECKFLAG
+WHO=EVERYBODY
+flag=22
+state=on
+@THEN
+JUSTONCE
+CHANGETERRAIN
+terraintype=9
+map=0
+exceptionmask=0x0620 
+maprect
+22,114, 32,114, 32,160, 22,160
+@ENDIF
+
+;corruption round 5
+
+@IF
+CHECKFLAG
+WHO=EVERYBODY
+mask=0x00780000
+count=4
+state=on
+@THEN	
+JUSTONCE
+DELAYPERFLAG
+randomize
+basedelay=50
+perflagdelay=20
+mask=0x000003FF
+TEXT
+Suddenly there's another rumbling in the magical vortex 
+and Volsang is now more free than enslaved.
+ENDTEXT
+CHANGETERRAIN
+terraintype=9
+map=0
+exceptionmask=0x0620 
+maprect
+33,59, 121,59, 121,161, 33, 161
+PLAYAVIFILE
+Scene9b.avi
+FLAG
+continuous
+flag=23
+state=on
+@ENDIF
+
+@IF
+CHECKFLAG
+WHO=EVERYBODY
+flag=23
+state=on
+@THEN
+JUSTONCE
+CHANGETERRAIN
+terraintype=9
+map=0
+exceptionmask=0x0620 
+maprect
+22,42, 120,42, 120,100, 22,100
+@ENDIF
+
+;corruption round 6
+
+@IF
+CHECKFLAG
+WHO=EVERYBODY
+mask=0x00F80000
+count=5
+state=on
+@THEN	
+JUSTONCE
+DELAYPERFLAG
+randomize
+basedelay=50
+perflagdelay=20
+mask=0x000003FF
+TEXT
+A great clap of thunder announces the imminent release of Volsang. 
+The next magical rumbling will, likely, be sufficient to free Volsang 
+to corrupt Midgard completely. Time has almost run out.
+ENDTEXT
+CHANGETERRAIN
+terraintype=9
+map=0
+exceptionmask=0x0620 
+maprect
+1,1,121,1,121,43,1,43
+PLAYAVIFILE
+Scene9b.avi
+GIVETECHNOLOGY
+technology=63
+receiver=humans
+@ENDIF
+
+;Tales and Rumors
+
+@IF
+RANDOMTURN
+denominator=25
+@THEN
+JUSTONCE
+PLAYWAVEFILE
+Fanfare7.wav
+TEXT
+An old, dust-covered hermit wanders into your capital telling many strange tales he has heard in his travels.
+You pay particular attention to five of them.
+He describes a utopian island guarded by gigantic man-eating plants. He claims that a great treasure awaits 
+whoever can pacify the island.
+He whispers of huge worms who can bore through solid rock. A very  ancient worm lives on a lonely 
+island in a huge underground sea and is famous for having swallowed many treasures in its long life. 
+He mentions a frost giant who is looking for adventure for a price. 
+He states with total conviction that whoever tastes Jormungand's spittle gains knowledge of war magic.
+He also speaks of animated Jack O'Lanterns roaming the roads and byways who are often willing to reveal
+valuable secrets for a price.  
+ENDTEXT
+CREATEUNIT
+owner=Barbarians
+unit=Jack O'Lantern
+veteran=no
+homecity=none
+count=5
+randomize
+locations
+64,104,0
+57,55,0
+71,53,0
+59,125,0
+61,35,0
+endlocations
+@ENDIF
+
+;Flytrap Island
+
+@IF
+UNITKILLED
+unit=Giant Flytrap
+attacker=ANYBODY
+defender=Barbarians
+@AND
+UNITKILLED
+unit=Flag unit
+attacker=ANYBODY
+defender=Barbarians
+@THEN
+JUSTONCE
+PLAYWAVEFILE
+Fanfare7.wav
+TEXT
+no broadcast
+You discover a magic sack out of which flows mounds of coins, a beautiful ruby, a pellucid cube which
+evaporates within seconds of touching it, a fragment of parchment with runes written on it and, to your
+astonishment, enough settlers to build a village. Even though human, they seem to consider you their natural master. You also hear a disembodied voice intoning, "The Gods
+have safeguarded this island from Volsang's Scourge."
+ENDTEXT
+CHANGEMONEY
+receiver=TRIGGERATTACKER
+amount=2000
+FLAG
+continuous
+who=triggerattacker
+flag=28
+state=on
+@ENDIF
+
+@IF
+CHECKFLAG
+who=Somebody
+flag=28
+state=on
+@THEN
+JUSTONCE
+CREATEUNIT
+owner=TRIGGERATTACKER
+unit=Settler
+veteran=false
+homecity=none
+locations
+27,107,0
+endlocations
+FLAG
+continuous
+flag=0
+state=on
+@ENDIF
+
+;Elder Dragon
+
+@IF
+BRIBEUNIT
+who=ANYBODY
+whom=ANYBODY
+unittype=50
+@AND
+CHECKFLAG
+WHO=SOMEBODY
+flag=19
+state=off
+@THEN
+TEXT
+no broadcast
+In gratitude for your gift, the Jack O'Lantern reveals a secret he learned while accidently overhearing a
+conversation between two wicked wizards. At the risk of his life, he relates to you a story of a prince
+transformed into a tree creature by one of the wizards. If anyone can break the spell by putting enough gold
+into a hollow bole on the creature, the prince will bestow a great reward. He last heard of the poor treeman
+roaming the haunted forest east of the Misty Mountains. He also warns you to hurry before he wanders
+away.
+ENDTEXT
+CREATEUNIT
+owner=Barbarians
+unit=E Treefolk
+count=2
+veteran=no
+homecity=none
+randomize
+locations
+66,54,0
+67,71,0
+71,67,0
+66,44,0
+67,55,0
+66,70,0
+70,68,0
+65,41,0
+71,79,0
+73,69,0
+endlocations
+@ENDIF
+
+@IF
+RANDOMTURN
+denominator=50
+@THEN
+DELAY
+delay=25
+CREATEUNIT
+owner=Barbarians
+unit=E Treefolk
+veteran=no
+homecity=none
+randomize
+locations
+66,70,0
+70,68,0
+66,54,0
+67,71,0
+71,67,0
+66,44,0
+71,79,0
+73,69,0
+67,65,o
+66,44,0
+endlocations
+@ENDIF
+
+@IF
+BRIBEUNIT
+who=ANYBODY
+whom=Barbarians
+unittype=23
+@THEN
+PLAYWAVEFILE
+Fanfare7.wav
+TEXT
+no broadcast
+The tree suddenly transforms into an ugly prince. With effusive thanks, he hands over a wooden tablet
+covered in runes. He tells you it is far more valuable than money; but can you believe a prince who is not
+charming? Seemingly as an afterthought, he tosses you a brilliant blue sapphire.
+ENDTEXT
+CREATEUNIT
+owner=Barbarians
+unit=Flag Unit
+veteran=no
+homecity=none
+locations
+62,16,0
+endlocations
+FLAG
+continuous
+who=triggerattacker
+flag=29
+state=on
+@ENDIF
+
+@IF
+CHECKFLAG
+who=Humans
+technology=44
+flag=29
+state=on
+@THEN
+JUSTONCE
+TEXT
+no broadcast
+The Treeman's tablet reads, "HEARKEN TO OUR PLEA!" A fearsome dragon holds our beautiful princess for
+ransom in the cold north. Defeat him and you will be amply rewarded. His evil brother, the giant
+Jormungand whose coils girdle the poles, has stolen our treasury and swallowed it whole. Recover our
+savings and receive another reward and our undying gratitude. - The People of the North.
+ENDTEXT
+@ENDIF
+
+@IF
+CHECKFLAG
+who=Infidels
+technology=44
+flag=29
+state=on
+@THEN
+JUSTONCE
+TEXT
+no broadcast
+The Treeman's tablet reads, "HEARKEN TO OUR PLEA!" A fearsome dragon holds our beautiful princess for
+ransom in the cold north. Defeat him and you will be amply rewarded. His evil brother, the giant
+Jormungand whose coils girdle the poles, has stolen our treasury and swallowed it whole. Recover our
+savings and receive another reward and our undying gratitude. - The People of the North.
+ENDTEXT
+@ENDIF
+
+@IF
+CHECKFLAG
+who=Stygians
+technology=44
+flag=29
+state=on
+@THEN
+JUSTONCE
+TEXT
+no broadcast
+The Treeman's tablet reads, "HEARKEN TO OUR PLEA!" A fearsome dragon holds our beautiful princess for
+ransom in the cold north. Defeat him and you will be amply rewarded. His evil brother, the giant
+Jormungand whose coils girdle the poles, has stolen our treasury and swallowed it whole. Recover our
+savings and receive another reward and our undying gratitude. - The People of the North.
+ENDTEXT
+@ENDIF
+
+@IF
+CHECKFLAG
+who=Merfolk
+technology=44
+flag=29
+state=on
+@THEN
+JUSTONCE
+TEXT
+no broadcast
+The Treeman's tablet reads, "HEARKEN TO OUR PLEA!" A fearsome dragon holds our beautiful princess for
+ransom in the cold north. Defeat him and you will be amply rewarded. His evil brother, the giant
+Jormungand whose coils girdle the poles, has stolen our treasury and swallowed it whole. Recover our
+savings and receive another reward and our undying gratitude. - The People of the North.
+ENDTEXT
+@ENDIF
+
+@IF
+CHECKFLAG
+who=Goblins
+technology=44
+flag=29
+state=on
+@THEN
+JUSTONCE
+TEXT
+no broadcast
+The Treeman's tablet reads, "HEARKEN TO OUR PLEA!" A fearsome dragon holds our beautiful princess for
+ransom in the cold north. Defeat him and you will be amply rewarded. His evil brother, the giant
+Jormungand whose coils girdle the poles, has stolen our treasury and swallowed it whole. Recover our
+savings and receive another reward and our undying gratitude. - The People of the North.
+ENDTEXT
+@ENDIF
+
+@IF
+CHECKFLAG
+who=Elves
+technology=44
+flag=29
+state=on
+@THEN
+JUSTONCE
+TEXT
+no broadcast
+The Treeman's tablet reads, "HEARKEN TO OUR PLEA!" A fearsome dragon holds our beautiful princess for
+ransom in the cold north. Defeat him and you will be amply rewarded. His evil brother, the giant
+Jormungand whose coils girdle the poles, has stolen our treasury and swallowed it whole. Recover our
+savings and receive another reward and our undying gratitude. - The People of the North.
+ENDTEXT
+@ENDIF
+
+@IF
+CHECKFLAG
+who=Buteos
+technology=44
+flag=29
+state=on
+@THEN
+JUSTONCE
+TEXT
+no broadcast
+The Treeman's tablet reads, "HEARKEN TO OUR PLEA!" A fearsome dragon holds our beautiful princess for
+ransom in the cold north. Defeat him and you will be amply rewarded. His evil brother, the giant
+Jormungand whose coils girdle the poles, has stolen our treasury and swallowed it whole. Recover our
+savings and receive another reward and our undying gratitude. - The People of the North.
+ENDTEXT
+@ENDIF
+
+@IF
+UNITKILLED
+map=0
+unit=Elder Dragon
+attacker=ANYBODY
+defender=Barbarians
+@THEN
+JUSTONCE
+PLAYWAVEFILE
+Shortking.wav
+TEXT
+no broadcast
+You have defeated the great elder dragon. In his lair, you find a fair maiden, actually a beautiful princess
+betrothed to the tree prince and being held for ransom by the dragon. She bequeathes to you a dragon tooth
+amulet, 2000 gold pieces, a fragment of parchment, and a pellucid cube which evaporates into smoke upon
+your touching it. She places the amulet around your neck and you suddenly realize great insights into 
+dragon lore.
+ENDTEXT
+CHANGEMONEY
+receiver=TRIGGERATTACKER
+amount=2000
+FLAG
+continuous
+flag=1
+state=on
+GIVETECHNOLOGY
+technology=77
+receiver=triggerattacker
+@ENDIF
+
+;Unspeakable Horror in Jormungand's belly
+
+@IF
+UNITKILLED
+unit=Unsp. Horror
+attacker=ANYBODY
+defender=Barbarians
+@THEN
+JUSTONCE
+PLAYWAVEFILE
+Shortking.wav
+TEXT
+no broadcast
+In amazement, you watch the defeated Unspeakable Horror transform into a Griffin who swears eternal
+allegience to you for breaking the spell that had enchanted him. He then rushes out of the snake into 
+the open air. Among the bones and animal remains that have accumulated in Jormungand's tail over the 
+centuries, you discover an exquisite emerald gem, a runic rosetta stone, a piece of parchment, mountains 
+of coins, and a pellucid cube that evaporates at a touch. You return the treasury to the people of the north 
+who give you a reward of 2000 gold coins in return.
+ENDTEXT
+CHANGEMONEY
+receiver=TRIGGERATTACKER
+amount=2000
+FLAG
+continuous
+who=triggerattacker
+flag=30
+state=on
+GIVETECHNOLOGY
+technology=44
+receiver=triggerattacker
+CREATEUNIT
+owner=TRIGGERATTACKER
+unit=B Griffin
+veteran=false
+homecity=none
+locations
+82,4,0
+82,6,0
+81,5,0
+81,3,0
+83,5,0
+83,3,0
+82,2,0
+endlocations
+@ENDIF
+
+@IF
+UNITKILLED
+unit=Unsp. Horror
+attacker=ANYBODY
+defender=Barbarians
+@THEN
+JUSTONCE
+FLAG
+continuous
+flag=2
+state=on
+@ENDIF
+
+;Great Worm
+
+@IF  
+UNITKILLED
+unit=worm
+attacker=ANYBODY
+defender=Barbarians
+@THEN
+JUSTONCE
+PLAYWAVEFILE
+Fanfare7.wav
+TEXT
+no broadcast
+You carve open the dead worm and find inside, a piece of parchment, and 1000 gold coins. A runic
+message mysteriously appears as raised welts on the skin of the creature.
+ENDTEXT
+CHANGEMONEY
+receiver=triggerattacker
+amount=1000
+FLAG
+continuous
+who=triggerattacker
+mask=0x2000004
+state=on 
+@ENDIF
+
+@IF  
+UNITKILLED
+unit=worm
+attacker=ANYBODY
+defender=Barbarians
+@THEN
+JUSTONCE
+FLAG
+continuous
+flag=3
+state=on
+@ENDIF
+
+@IF
+CHECKFLAG
+who=Somebody
+flag=25
+technology=44
+state=on
+@THEN
+JUSTONCE
+TEXT
+no broadcast
+The runic message you saw on the side of the worm says, "Killing a great worm ends their insidious
+practice of swallowing dead warriors and then excreting them as barrow wights."
+ENDTEXT
+@ENDIF
+
+;creating undead
+
+@IF
+UNITKILLED
+unit=ANYUNIT
+attacker=ANYBODY
+defender=ANYBODY
+@AND
+CHECKFLAG
+WHO=EVERYBODY
+flag=25
+state=off
+@THEN
+JUSTONCE
+PLAYWAVEFILE
+Fanfare7.wav
+TEXT
+The shade of a defeated unit has been carried away by a huge worm to
+rise up as a Barrow Wight, now a minion of Volsang. You recall that all
+dead creatures eventually arise under the dominion of Volsang and that
+this insidious practice will persist until you defeat a worm.
+ENDTEXT
+@ENDIF
+
+@IF
+UNITKILLED
+unit=ANYUNIT
+attacker=ANYBODY
+defender=ANYBODY
+@AND
+CHECKFLAG
+WHO=EVERYBODY
+flag=25
+state=off
+@THEN
+DELAY
+delay=3
+CREATEUNIT
+owner=Barbarians
+unit=S Barrow Wight
+veteran=no
+homecity=none
+randomize
+locations
+65,117,0
+65,123,0
+68,124,0
+74,114,0
+2,4,0
+4,4,0
+6,4,0
+8,4,0
+10,4,0
+12,4,0
+endlocations
+@ENDIF
+
+;Frost Giant
+
+@IF
+BRIBEUNIT
+who=ANYBODY
+whom=BARBARIANS
+unittype=56
+@THEN
+JUSTONCE
+TEXT
+no broadcast
+The giant decides to join your side. He gives you a piece of parchment and a pellucid cube which
+evaporates upon touch. He vows that, henceforth, none of his fellow frost giants will fight for Volsang.
+ENDTEXT
+FLAG
+who=TRIGGERATTACKER
+mask=0x80000010
+state=off
+@ENDIF
+
+;Griffin random production
+
+@IF
+RECEIVEDTECHNOLOGY
+receiver=anybody
+technology=79
+@AND
+CHECKFLAG
+Who=EVERYBODY
+flag=22
+state=on
+@THEN
+JUSTONCE
+PLAYWAVEFILE
+Fanfare7.wav
+TEXT
+Volsang's corruption has reached the Griffins' mountain stronghold and forced them into the open. If
+you can understand their ways, you think you may convince many to join your side. If you haven't 
+studied Griffin Culture yet, perhaps the allure of Griffin allies might convince you to do so.
+ENDTEXT
+FLAG
+flag=11
+state=off 
+@ENDIF
+
+@IF
+CHECKFLAG
+WHO=EVERYBODY
+flag=11
+state=off
+@AND
+RANDOMTURN
+denominator=25
+@THEN
+FLAG
+flag=24
+state=on
+@ENDIF
+
+@IF
+CHECKFLAG
+WHO=Humans
+technology=79
+flag=24
+state=on
+@THEN
+TEXT
+no broadcast
+A griffin decides to join your fight against Volsang.
+ENDTEXT
+CREATEUNIT
+incapital
+owner=Humans
+unit=B Griffin 
+veteran=no
+homecity=none
+@ENDIF
+
+@IF
+CHECKFLAG
+WHO=Infidels
+technology=79
+flag=24
+state=on
+@THEN
+TEXT
+no broadcast
+A griffin decides to join your fight against Volsang.
+ENDTEXT
+CREATEUNIT
+incapital
+owner=Infidels
+unit=B Griffin 
+veteran=no
+homecity=none
+@ENDIF
+
+@IF
+CHECKFLAG
+WHO=Elves
+technology=79
+flag=24
+state=on
+@THEN
+TEXT
+no broadcast
+A griffin decides to join your fight against Volsang.
+ENDTEXT
+CREATEUNIT
+incapital
+owner=Elves
+unit=B Griffin 
+veteran=no
+homecity=none
+@ENDIF
+
+@IF
+CHECKFLAG
+WHO=Merfolk
+technology=79
+flag=24
+state=on
+@THEN
+TEXT
+no broadcast
+A griffin decides to join your fight against Volsang.
+ENDTEXT
+CREATEUNIT
+incapital
+owner=Merfolk
+unit=B Griffin 
+veteran=no
+homecity=none
+@ENDIF
+
+@IF
+CHECKFLAG
+WHO=Buteos
+technology=79
+flag=24
+state=on
+@THEN
+TEXT
+no broadcast
+A griffin decides to join your fight against Volsang.
+ENDTEXT
+CREATEUNIT
+incapital
+owner=Buteos
+unit=B Griffin 
+veteran=no
+homecity=none
+@ENDIF
+
+@IF
+CHECKFLAG
+WHO=Goblins
+technology=79
+flag=24
+state=on
+@THEN
+TEXT
+no broadcast
+A griffin decides to join your fight against Volsang.
+ENDTEXT
+CREATEUNIT
+incapital
+owner=Goblins
+unit=B Griffin 
+veteran=no
+homecity=none
+@ENDIF
+
+@IF
+CHECKFLAG
+WHO=Stygians
+technology=79
+flag=24
+state=on
+@THEN
+TEXT
+no broadcast
+A griffin decides to join your fight against Volsang.
+ENDTEXT
+CREATEUNIT
+incapital
+owner=Stygians
+unit=B Griffin 
+veteran=no
+homecity=none
+@ENDIF
+
+;capture enemy capitals
+
+@IF
+CITYTAKEN
+city=Oldgrange
+attacker=ANYBODY
+defender=Humans
+unittype=fairy
+@THEN
+JUSTONCE
+PLAYWAVEFILE
+Shortking.wav
+TEXT
+no broadcast
+You discover a piece of a key in a reliquary buried in the city ruins. You instantly recognize it as part of 
+the great key of Volsang, shattered in the climactic battle that enslaved him many centuries ago and 
+presumed  lost since then. It seems a secret cult of Volsang had kept it in safekeeping. If all six pieces can 
+be found,  Volsang's escape can be stopped. Perhaps they are hidden in other capitals.
+ENDTEXT
+FLAG
+flag=12
+continuous
+state=on
+@ENDIF
+
+@IF
+CITYTAKEN
+city=Krakatorum
+attacker=ANYBODY
+defender=Infidels
+unittype=fairy
+@THEN
+JUSTONCE
+PLAYWAVEFILE
+Shortking.wav
+TEXT
+no broadcast
+You discover a piece of a key in a reliquary buried in the city ruins. You instantly recognize it as part of 
+the great key of Volsang, shattered in the climactic battle that enslaved him many centuries ago and 
+presumed  lost since then. It seems a secret cult of Volsang had kept it in safekeeping. If all six pieces can 
+be found,  Volsang's escape can be stopped. Perhaps they are hidden in other capitals.
+ENDTEXT
+FLAG
+flag=13
+continuous
+state=on
+@ENDIF
+
+@IF
+CITYTAKEN
+city=Goldleaf
+attacker=ANYBODY
+defender=Elves
+unittype=fairy
+@THEN
+JUSTONCE
+PLAYWAVEFILE
+Shortking.wav
+TEXT
+no broadcast
+You discover a piece of a key in a reliquary buried in the city ruins. You instantly recognize it as part of 
+the great key of Volsang, shattered in the climactic battle that enslaved him many centuries ago and 
+presumed  lost since then. It seems a secret cult of Volsang had kept it in safekeeping. If all six pieces can 
+be found,  Volsang's escape can be stopped. Perhaps they are hidden in other capitals.
+ENDTEXT
+FLAG
+flag=14
+continuous
+state=on
+@ENDIF
+
+@IF
+CITYTAKEN
+city=Eagle's Aerie
+attacker=ANYBODY
+defender=Buteos
+unittype=fairy
+@THEN
+JUSTONCE
+PLAYWAVEFILE
+Shortking.wav
+TEXT
+no broadcast
+You discover a piece of a key in a reliquary buried in the city ruins. You instantly recognize it as part of 
+the great key of Volsang, shattered in the climactic battle that enslaved him many centuries ago and 
+presumed  lost since then. It seems a secret cult of Volsang had kept it in safekeeping. If all six pieces can 
+be found,  Volsang's escape can be stopped. Perhaps they are hidden in other capitals.
+ENDTEXT
+FLAG
+flag=15
+continuous
+state=on
+@ENDIF
+
+@IF
+CITYTAKEN
+city=Atlantis
+attacker=ANYBODY
+defender=Merfolk
+unittype=fairy
+@THEN
+JUSTONCE
+PLAYWAVEFILE
+Shortking.wav
+TEXT
+no broadcast
+You discover a piece of a key in a reliquary buried in the city ruins. You instantly recognize it as part of 
+the great key of Volsang, shattered in the climactic battle that enslaved him many centuries ago and 
+presumed  lost since then. It seems a secret cult of Volsang had kept it in safekeeping. If all six pieces can 
+be found,  Volsang's escape can be stopped. Perhaps they are hidden in other capitals.
+ENDTEXT
+FLAG
+flag=16
+continuous
+state=on
+@ENDIF
+
+@IF
+CITYTAKEN
+city=Grympen Mire
+attacker=ANYBODY
+defender=Goblins
+unittype=fairy
+@THEN
+JUSTONCE
+PLAYWAVEFILE
+Shortking.wav
+TEXT
+no broadcast
+You discover a piece of a key in a reliquary buried in the city ruins. You instantly recognize it as part of 
+the great key of Volsang, shattered in the climactic battle that enslaved him many centuries ago and 
+presumed  lost since then. It seems a secret cult of Volsang had kept it in safekeeping. If all six pieces can 
+be found,  Volsang's escape can be stopped. Perhaps they are hidden in other capitals.
+ENDTEXT
+FLAG
+flag=17
+continuous
+state=on
+@ENDIF
+
+@IF
+CITYTAKEN
+city=Doomsday
+attacker=ANYBODY
+defender=Stygians
+unittype=fairy
+@THEN
+JUSTONCE
+PLAYWAVEFILE
+Shortking.wav
+TEXT
+no broadcast
+You discover a piece of a key in a reliquary buried in the city ruins. You instantly recognize it as part of 
+the great key of Volsang, shattered in the climactic battle that enslaved him many centuries ago and 
+presumed  lost since then. It seems a secret cult of Volsang had kept it in safekeeping. If all six pieces can 
+be found,  Volsang's escape can be stopped. Perhaps they are hidden in other capitals.
+ENDTEXT
+FLAG
+continuous
+flag=18
+state=on
+@ENDIF
+
+@IF
+CHECKFLAG
+WHO=EVERYBODY
+mask=0x0007F000
+threshold=6
+state=on
+@THEN
+JUSTONCE
+PLAYWAVEFILE
+Shortking.wav
+TEXT
+All six pieces of the key have been found. In the face of a greater foe, the tribes momentarily put aside 
+their wars and help build one key. The key magically restores Volsang's imprisonment spell to almost full
+strength. One crack is too deep to repair, however. Even so, the chances of Volsang overcoming the spell
+again have been dramatically reduced although not eliminated entirely. You still need to find another way
+to defeat him forever.
+ENDTEXT
+FLAG
+continuous
+mask=0x1FF
+state=on
+@ENDIF
+
+@IF
+CHECKFLAG
+WHO=EVERYBODY
+mask=0x0007F000
+threshold=6
+state=on
+@THEN
+FLAG
+flag=26
+state=off
+@ENDIF
+
+;a call to arms
+
+@IF
+CHECKFLAG
+WHO=EVERYBODY
+flag=19
+state=on
+@THEN
+JUSTONCE
+PLAYWAVEFILE
+Fanfare7.wav
+TEXT
+Rumors have begun circulating that your champion has been seen near your capital. After years of solitary
+wandering, is he finally returning to lead the battle against Volsang? Your heart rises to your throat with
+the sudden hope this thought brings. 
+A sudden influx of Jack O'Lanterns in the region generally means they have important information to
+impart for a price. 
+ENDTEXT
+@ENDIF
+
+@IF
+CHECKFLAG
+WHO=EVERYBODY
+flag=19
+state=on
+@THEN
+JUSTONCE
+DELAY
+randomize
+delay=5
+CREATEUNIT
+owner=Humans
+unit=H Hero
+veteran=yes
+homecity=none
+locations
+39,73,0
+endlocations
+@ENDIF
+
+@IF
+CHECKFLAG
+WHO=EVERYBODY
+flag=19
+state=on
+@THEN
+JUSTONCE
+DELAY
+randomize
+delay=5
+CREATEUNIT
+owner=Elves
+unit=E Hero
+veteran=yes
+homecity=none
+locations
+92,56,0
+endlocations
+@ENDIF
+
+@IF
+CHECKFLAG
+WHO=EVERYBODY
+flag=19
+state=on
+@THEN
+JUSTONCE
+DELAY
+randomize
+delay=5
+CREATEUNIT
+owner=Infidels
+unit=I Hero
+veteran=yes
+homecity=none
+locations
+48,126,0
+endlocations
+@ENDIF
+
+@IF
+CHECKFLAG
+WHO=EVERYBODY
+flag=19
+state=on
+@THEN
+JUSTONCE
+DELAY
+randomize
+delay=5
+CREATEUNIT
+owner=Goblins
+unit=G Great Goblin
+veteran=yes
+homecity=none
+locations
+60,64,2
+endlocations
+@ENDIF
+
+@IF
+CHECKFLAG
+WHO=EVERYBODY
+flag=19
+state=on
+@THEN
+JUSTONCE
+DELAY
+randomize
+delay=5
+CREATEUNIT
+owner=Merfolk
+unit=M Hero
+veteran=yes
+homecity=none
+locations
+28,56,1
+endlocations
+@ENDIF
+
+@IF
+CHECKFLAG
+WHO=EVERYBODY
+flag=19
+state=on
+@THEN
+JUSTONCE
+DELAY
+randomize
+delay=5
+CREATEUNIT
+owner=Buteos
+unit=B Hero
+veteran=yes
+homecity=none
+locations
+60,36,3
+endlocations
+@ENDIF
+
+@IF
+CHECKFLAG
+WHO=EVERYBODY
+flag=19
+state=on
+@THEN
+JUSTONCE
+DELAY
+randomize
+delay=5
+CREATEUNIT
+owner=Stygians
+unit=S Lord
+veteran=yes
+homecity=none
+locations
+87,137,2
+endlocations
+@ENDIF
+
+@IF
+CHECKFLAG
+WHO=EVERYBODY
+flag=19
+state=on
+@THEN
+JUSTONCE
+CREATEUNIT
+owner=Barbarians
+unit=Jack O'Lantern
+veteran=no
+homecity=none
+count=6
+randomize
+locations
+38,60,0
+44,60,0
+46,114,0
+39,133,0
+87,57,0
+93,51,0
+30,66,0
+93,131,0
+60,36,0
+61,33,0
+endlocations
+@ENDIF
+
+@IF
+CHECKFLAG
+WHO=EVERYBODY
+flag=19
+state=on
+@THEN
+JUSTONCE
+CREATEUNIT
+owner=Barbarians
+unit=Jack O'Lantern
+veteran=no
+homecity=none
+locations
+73,67,2
+49,77,2
+47,63,2
+endlocations
+@ENDIF
+
+@IF
+BRIBEUNIT
+who=ANYBODY
+whom=Barbarians
+unittype=50
+@AND
+CHECKFLAG
+WHO=EVERYBODY
+flag=19
+state=on
+@THEN
+PLAYWAVEFILE
+Fanfare7.wav
+TEXT
+Overcome by such excitement that he barely can take a breath, Jack exclaims that you must send an envoy
+to visit the foreign embassy of every capital with a call to arms before Volsang can 
+further loosen his magical bonds. In the face of a common danger, the other races will likely provide 
+you with units and money but don't delay before they change their minds. He says the embassies are 
+usually  not found in the capital but directly to the north of it.  Jack also mentions that the Dwarven King 
+might come to your assistance for a price. You should look for him in the far north.
+ENDTEXT
+GIVETECHNOLOGY
+technology=92
+receiver=triggerattacker
+@ENDIF
+
+@IF
+BRIBEUNIT
+who=ANYBODY
+whom=Barbarians
+unittype=50
+@AND
+CHECKFLAG
+WHO=EVERYBODY
+flag=19
+state=on
+@THEN
+JUSTONCE
+CREATEUNIT
+owner=Humans
+unit=Flag Unit 
+veteran=no
+homecity=none
+locations
+39,71,0
+endlocations
+@ENDIF
+
+@IF
+BRIBEUNIT
+who=ANYBODY
+whom=Barbarians
+unittype=50
+@AND
+CHECKFLAG
+WHO=EVERYBODY
+flag=19
+state=on
+@THEN
+JUSTONCE
+CREATEUNIT
+owner=Infidels
+unit=Flag Unit 
+veteran=no
+homecity=none
+locations
+48,124,0
+endlocations
+@ENDIF
+
+@IF
+BRIBEUNIT
+who=ANYBODY
+whom=Barbarians
+unittype=50
+@AND
+CHECKFLAG
+WHO=EVERYBODY
+flag=19
+state=on
+@THEN
+JUSTONCE
+CREATEUNIT
+owner=Elves
+unit=Flag Unit 
+veteran=no
+homecity=none
+locations
+92,54,0
+endlocations
+@ENDIF
+
+@IF
+BRIBEUNIT
+who=ANYBODY
+whom=Barbarians
+unittype=50
+@AND
+CHECKFLAG
+WHO=EVERYBODY
+flag=19
+state=on
+@THEN
+JUSTONCE
+CREATEUNIT
+owner=Merfolk
+unit=Flag Unit 
+veteran=no
+homecity=none
+locations
+28,56,1
+endlocations
+@ENDIF
+
+@IF
+BRIBEUNIT
+who=ANYBODY
+whom=Barbarians
+unittype=50
+@AND
+CHECKFLAG
+WHO=EVERYBODY
+flag=19
+state=on
+@THEN
+JUSTONCE
+CREATEUNIT
+owner=Buteos
+unit=Flag Unit 
+veteran=no
+homecity=none
+locations
+60,34,3
+endlocations
+@ENDIF
+
+@IF
+BRIBEUNIT
+who=ANYBODY
+whom=Barbarians
+unittype=50
+@AND
+CHECKFLAG
+WHO=EVERYBODY
+flag=19
+state=on
+@THEN
+JUSTONCE
+CREATEUNIT
+owner=Goblins
+unit=Flag Unit 
+veteran=no
+homecity=none
+locations
+60,62,2
+endlocations
+@ENDIF
+
+@IF
+BRIBEUNIT
+who=ANYBODY
+whom=Barbarians
+unittype=50
+@AND
+CHECKFLAG
+WHO=EVERYBODY
+flag=19
+state=on
+@THEN
+JUSTONCE
+CREATEUNIT
+owner=Stygians
+unit=Flag Unit 
+veteran=no
+homecity=none
+locations
+87,135,2
+endlocations
+@ENDIF
+
+@IF
+UNITKILLED
+unit=Flag unit
+attacker=ANYBODY
+defender=Humans
+@AND
+CHECKFLAG
+WHO=EVERYBODY
+flag=20
+state=off
+@THEN
+JUSTONCE
+PLAYWAVEFILE
+Fanfare7.wav
+TEXT
+no broadcast
+The Humans hear the call to arms and contribute 500 gold and a captured Frost Giant they were saving for
+the final defense of their capital.
+ENDTEXT
+CHANGEMONEY
+receiver=triggerattacker
+amount=500
+CREATEUNIT
+owner=TRIGGERATTACKER
+unit=Frost Giant
+veteran=no
+homecity=none
+locations
+39,71,0
+39,69,0
+39,67,0
+38,68,0
+40,68,0
+40,66,0
+endlocations
+@ENDIF
+
+@IF
+UNITKILLED
+unit=Flag unit
+attacker=ANYBODY
+defender=Infidels
+@AND
+CHECKFLAG
+WHO=EVERYBODY
+flag=20
+state=off
+@THEN
+JUSTONCE
+PLAYWAVEFILE
+Fanfare7.wav
+TEXT
+no broadcast
+The Infidels hear the call to arms and contribute 500 gold and a captured Frost Giant they were saving for
+the final defense of their capital.
+ENDTEXT
+CHANGEMONEY
+receiver=TRIGGERATTACKER
+amount=500
+CREATEUNIT
+owner=TRIGGERATTACKER
+unit=Frost Giant
+veteran=no
+homecity=none
+locations
+48,124,0
+48,122,0
+48,120,0
+47,121,0
+49,123,0
+46,122,0
+49,123,0
+endlocations
+@ENDIF
+
+@IF
+UNITKILLED
+unit=Flag unit
+attacker=ANYBODY
+defender=Elves
+@AND
+CHECKFLAG
+WHO=EVERYBODY
+flag=20
+state=off
+@THEN
+JUSTONCE
+PLAYWAVEFILE
+Fanfare7.wav
+TEXT
+no broadcast
+The Elves hear the call to arms and contribute 500 gold and a captured Frost Giant they were saving for the
+final defense of their capital.
+ENDTEXT
+CHANGEMONEY
+receiver=TRIGGERATTACKER
+amount=500
+CREATEUNIT
+owner=TRIGGERATTACKER
+unit=Frost Giant
+veteran=no
+homecity=none
+locations
+92,54,0
+92,52,0
+93,51,0
+91,51,0
+93,65,0
+96,64,0
+endlocations
+@ENDIF
+
+@IF
+UNITKILLED
+unit=Flag unit
+attacker=ANYBODY
+defender=Merfolk
+@AND
+CHECKFLAG
+WHO=EVERYBODY
+flag=20
+state=off
+@THEN
+JUSTONCE
+PLAYWAVEFILE
+Fanfare7.wav
+TEXT
+no broadcast
+The Merfolk hear the call to arms and contribute 500 gold and a captured Kraken they were saving for the
+final defense of their capital.
+ENDTEXT
+CHANGEMONEY
+receiver=TRIGGERATTACKER
+amount=500
+CREATEUNIT
+owner=TRIGGERATTACKER
+unit=M Kraken
+veteran=no
+homecity=none
+locations
+27,59,1
+30,58,1
+25,59,1
+24,58,1
+24,56,1
+24,54,1
+endlocations
+@ENDIF
+
+@IF
+UNITKILLED
+unit=Flag unit
+attacker=ANYBODY
+defender=Buteos
+@AND
+CHECKFLAG
+WHO=EVERYBODY
+flag=20
+state=off
+@THEN
+JUSTONCE
+PLAYWAVEFILE
+Fanfare7.wav
+TEXT
+no broadcast
+The Buteos hear the call to arms and contribute 500 gold and a captured Griffin they were saving for the
+final defense of their capital.
+ENDTEXT
+CHANGEMONEY
+receiver=TRIGGERATTACKER
+amount=500
+CREATEUNIT
+owner=TRIGGERATTACKER
+unit=B Griffin
+veteran=no
+homecity=none
+locations
+60,34,3
+60,32,3
+62,32,3
+58,32,3
+59,31,3
+61,31,3
+62,34,3
+58,34,3
+endlocations
+@ENDIF
+
+@IF
+UNITKILLED
+unit=Flag unit
+attacker=ANYBODY
+defender=Goblins
+@AND
+CHECKFLAG
+WHO=EVERYBODY
+flag=20
+state=off
+@THEN
+JUSTONCE
+PLAYWAVEFILE
+Fanfare7.wav
+TEXT
+no broadcast
+The Goblins hear the call to arms and contribute 500 gold and a captured Worm they were saving for the
+final defense of their capital.
+ENDTEXT
+CHANGEMONEY
+receiver=TRIGGERATTACKER
+amount=500
+CREATEUNIT
+owner=TRIGGERATTACKER
+unit=Worm
+veteran=no
+homecity=none
+locations
+60,62,2
+60,60,2
+59,61,2
+58,62,2
+59,59,2
+62,60,2
+58,60,2
+57,61,2
+endlocations
+@ENDIF
+
+@IF
+UNITKILLED
+unit=Flag unit
+attacker=ANYBODY
+defender=Stygians
+@AND
+CHECKFLAG
+WHO=EVERYBODY
+flag=20
+state=off
+@THEN
+JUSTONCE
+PLAYWAVEFILE
+Fanfare7.wav
+TEXT
+no broadcast
+The Stygians hear the call to arms and contribute 500 gold and a captured Worm they were saving for the
+final defense of their capital.
+ENDTEXT
+CHANGEMONEY
+receiver=triggerattacker
+amount=500
+CREATEUNIT
+owner=TRIGGERATTACKER
+unit=Worm
+veteran=no
+homecity=none
+locations
+87,135,2
+88,134,2
+86,136,2
+89,133,2
+84,138,2
+85,131,2
+91,135,2
+endlocations
+@ENDIF
+
+@IF
+RECEIVEDTECHNOLOGY
+receiver=ANYBODY
+technology=92
+@AND
+CHECKFLAG
+WHO=EVERYBODY
+flag=20
+state=on
+@THEN
+JUSTONCE
+PLAYWAVEFILE
+Fanfare7.wav
+TEXT
+Volsang has now grown so powerful that the other races have become too frightened to respond to the 'call
+to arms'.
+ENDTEXT
+@ENDIF
+
+; bribe dwarven king
+
+@IF
+CHECKFLAG
+WHO=EVERYBODY
+flag=19
+state=on
+@THEN
+JUSTONCE
+CREATEUNIT
+owner=Barbarians
+unit=Dwarf 
+veteran=no
+homecity=none
+locations
+73,25,0
+72,24,0
+78,24,0
+70,24,0
+68,22,0
+62,18,0
+endlocations
+@ENDIF
+
+@IF
+BRIBEUNIT
+who=anybody
+whom=Barbarians
+unittype=01
+@THEN
+JUSTONCE
+PLAYWAVEFILE
+Fanfare7.wav
+TEXT
+no broadcast
+The Dwarven King shares your concern and offers his army for your use. He also hints at a ring of power
+lost somewhere in his mine that may be of service in your war against Volsang. He teaches you the
+dwarven art of metalworking.
+ENDTEXT
+CREATEUNIT
+owner=Barbarians
+unit=Flag Unit
+veteran=no
+homecity=none
+locations
+97,31,2
+endlocations 
+GIVETECHNOLOGY
+technology=51
+receiver=triggerattacker
+@ENDIF
+
+@IF
+BRIBEUNIT
+who=anybody
+whom=Barbarians
+unittype=01
+@THEN
+JUSTONCE
+CREATEUNIT
+owner=triggerattacker
+unit=Dwarf
+veteran=no
+homecity=none
+count=6
+locations
+73,25,2
+74,24,2
+75,23,2
+endlocations
+@ENDIF
+ 
+@IF
+BRIBEUNIT
+who=anybody
+whom=Barbarians
+unittype=01
+@THEN
+JUSTONCE
+CREATEUNIT
+owner=Barbarians
+unit=S Barrow Wight
+veteran=no
+homecity=none
+locations
+97,31,2
+endlocations
+@ENDIF
+
+@IF
+UNITKILLED
+unit=S Barrow Wight
+attacker=anybody
+defender=barbarians
+@AND
+UNITKILLED
+unit=Flag Unit
+attacker=anybody
+defender=Barbarians
+@THEN
+JUSTONCE
+PLAYWAVEFILE
+Shortking.wav
+TEXT
+no broadcast
+In a hidden chamber covered in carved runes, you find the lost dwarven hoard. Included is a piece of
+parchment, 2000 gold pieces and a dwarven-forged ring of power that helps delay Volsang's breakout.
+ENDTEXT
+FLAG
+flag=6
+state=on
+CHANGEMONEY
+receiver=triggerattacker
+amount=2000
+@ENDIF
+
+;Find map to goblet
+
+@IF
+UNITKILLED
+unit=ANYUNIT
+attacker=Humans
+defender=Barbarians
+@AND
+RECEIVEDTECHNOLOGY
+receiver=Humans
+technology=44
+@THEN
+JUSTONCE
+TEXT
+no broadcast
+You are astonished to discover a map on the carcass of a barbarian creature lying on the side of a road. You notice some smudged
+runes in the margin. The message reads, Search the city of Rot in the Valley of the Wastelands to find
+the Goblet of Everlasting Life. Rot appears on the map near the intersection of coordinates of 68 and 124.
+ENDTEXT
+@ENDIF
+
+@IF
+UNITKILLED
+unit=ANYUNIT
+attacker=Infidels
+defender=Barbarians
+@AND
+RECEIVEDTECHNOLOGY
+receiver=Infidels
+technology=44
+@THEN
+JUSTONCE
+TEXT
+no broadcast
+You are astonished to discover a map on the carcass of a barbarian creature. You notice some smudged
+runes in the margin. The message reads, Search the city of Rot in the Valley of the Wastelands to find
+the Goblet of Everlasting Life. Rot appears on the map near the intersection of coordinates of 68 and 124.
+ENDTEXT
+@ENDIF
+
+@IF
+UNITKILLED
+unit=ANYUNIT
+attacker=Elves
+defender=Barbarians
+@AND
+RECEIVEDTECHNOLOGY
+receiver=Elves
+technology=44
+@THEN
+JUSTONCE
+TEXT
+no broadcast
+You are astonished to discover a map on the carcass of a barbarian creature. You notice some smudged
+runes in the margin. The message reads, Search the city of Rot in the Valley of the Wastelands to find
+the Goblet of Everlasting Life. Rot appears on the map near the intersection of coordinates of 68 and 124.
+ENDTEXT
+@ENDIF
+
+@IF
+UNITKILLED
+unit=ANYUNIT
+attacker=Merfolk
+defender=Barbarians
+@AND
+RECEIVEDTECHNOLOGY
+receiver=Merfolk
+technology=44
+@THEN
+JUSTONCE
+TEXT
+no broadcast
+You are astonished to discover a map on the carcass of a barbarian creature. You notice some smudged
+runes in the margin. The message reads, Search the city of Rot in the Valley of the Wastelands to find
+the Goblet of Everlasting Life. Rot appears on the map near the intersection of coordinates of 68 and 124.
+ENDTEXT
+@ENDIF
+
+@IF
+UNITKILLED
+unit=ANYUNIT
+attacker=Goblins
+defender=Barbarians
+@AND
+RECEIVEDTECHNOLOGY
+receiver=Goblins
+technology=44
+@THEN
+JUSTONCE
+TEXT
+no broadcast
+You are astonished to discover a map on the carcass of a barbarian creature. You notice some smudged
+runes in the margin. The message reads, Search the city of Rot in the Valley of the Wastelands to find
+the Goblet of Everlasting Life. Rot appears on the map near the intersection of coordinates of 68 and 124.
+ENDTEXT
+@ENDIF
+
+@IF
+UNITKILLED
+unit=ANYUNIT
+attacker=Stygians
+defender=Barbarians
+@AND
+RECEIVEDTECHNOLOGY
+receiver=Stygians
+technology=44
+@THEN
+JUSTONCE
+TEXT
+no broadcast
+You are astonished to discover a map on the carcass of a barbarian creature. You notice some smudged
+runes in the margin. The message reads, Search the city of Rot in the Valley of the Wastelands to find
+the Goblet of Everlasting Life. Rot appears on the map near the intersection of coordinates of 68 and 124.
+ENDTEXT
+@ENDIF
+
+@IF
+UNITKILLED
+unit=ANYUNIT
+attacker=Buteos
+defender=Barbarians
+@AND
+RECEIVEDTECHNOLOGY
+receiver=Buteos
+technology=44
+@THEN
+JUSTONCE
+TEXT
+no broadcast
+You are astonished to discover a map on the carcass of a barbarian creature. You notice some smudged
+runes in the margin. The message reads, Search the city of Rot in the Valley of the Wastelands to find
+the Goblet of Everlasting Life. Rot appears on the map near the intersection of coordinates of 68 and 124.
+ENDTEXT
+@ENDIF
+
+@IF
+CITYTAKEN
+city=Rot
+attacker=anybody
+defender=Barbarians
+unittype=spy
+@THEN
+JUSTONCE
+PLAYWAVEFILE
+Fanfare7.wav
+TEXT
+no broadcast
+You are dumbfounded to discover a votive gold goblet covered in runes buried in the debris of heathen
+Rot. Surrounding the cup are three empty clasps evidently placed there to hold gems. The barbarians were able to make away with most of
+their treasure but some gold was still overlooked.
+ENDTEXT
+CHANGEMONEY
+receiver=triggerattacker
+amount=400
+FLAG
+continuous
+who=triggerattacker
+mask=0x08000200
+count=2
+state=on
+@ENDIF
+
+@IF
+CITYDESTROYED
+city=Rot
+owner=Barbarians
+@THEN
+JUSTONCE
+PLAYWAVEFILE
+Fanfare7.wav
+TEXT
+The destroyer of the heathen city of Rot has discovered a votive gold
+goblet covered in runes buried in the debris of a temple.
+Surrounding the cup are three empty clasps evidently placed there to
+hold gems. The barbarians were able to make away with most of
+their treasure but some gold was still overlooked.
+ENDTEXT
+CHANGEMONEY
+receiver=triggerattacker
+amount=400
+FLAG
+continuous
+who=triggerattacker
+mask=0x08000200
+count=2
+state=on
+@ENDIF
+
+@IF
+CHECKFLAG
+who=Somebody
+technology=44
+flag=27
+state=on
+@THEN
+JUSTONCE
+PLAYWAVEFILE
+Fanfare7.wav
+TEXT
+no broadcast
+The runic inscription on the goblet reads,  "I give perpetual life to all of heroic stature who drink from me."
+ENDTEXT
+@ENDIF
+
+;drinking from the goblet
+
+@IF
+UNITKILLED
+unit=H Hero
+attacker=anybody
+defender=Humans
+@AND
+CHECKFLAG
+who=Humans
+mask=0x78000000
+count=4
+state=on
+@THEN
+PLAYWAVEFILE
+Fanfare7.wav
+TEXT
+no broadcast
+Your hero drinks from the goblet and reappears in your capital, completely restored to life.
+ENDTEXT
+CREATEUNIT
+owner=Humans
+unit=H Hero
+veteran=yes
+homecity=none
+locations
+39,73,0
+endlocations
+@ENDIF
+
+@IF
+UNITKILLED
+unit=I Hero
+attacker=anybody
+defender=Infidels
+@AND
+CHECKFLAG
+who=Infidels
+mask=0x78000000
+count=4
+state=on
+@THEN
+PLAYWAVEFILE
+Fanfare7.wav
+TEXT
+no broadcast
+Your hero drinks from the goblet and reappears in your capital, completely restored to life.
+ENDTEXT
+CREATEUNIT
+owner=Infidels
+unit=I Hero
+veteran=yes
+homecity=none
+locations
+48,126,0
+endlocations
+@ENDIF
+
+@IF
+UNITKILLED
+unit=E Hero
+attacker=anybody
+defender=Elves
+@AND
+CHECKFLAG
+who=Elves
+mask=0x78000000
+count=4
+state=on
+@THEN
+PLAYWAVEFILE
+Fanfare7.wav
+TEXT
+no broadcast
+Your hero drinks from the goblet and reappears in your capital, completely restored to life.
+ENDTEXT
+CREATEUNIT
+owner=Elves
+unit=E Hero
+veteran=yes
+homecity=none
+locations
+92,56,0
+endlocations
+@ENDIF
+
+@IF
+UNITKILLED
+unit=B Hero
+attacker=anybody
+defender=Buteos
+@AND
+CHECKFLAG
+who=Buteos
+mask=0x78000000
+count=4
+state=on
+@THEN
+PLAYWAVEFILE
+Fanfare7.wav
+TEXT
+no broadcast
+Your hero drinks from the goblet and reappears in your capital, completely restored to life.
+ENDTEXT
+CREATEUNIT
+owner=Buteos
+unit=B Hero
+veteran=yes
+homecity=none
+locations
+60,36,3
+endlocations
+@ENDIF
+
+@IF
+UNITKILLED
+unit=M Hero
+attacker=anybody
+defender=Merfolk
+@AND
+CHECKFLAG
+who=Merfolk
+mask=0x78000000
+count=4
+state=on
+@THEN
+PLAYWAVEFILE
+Fanfare7.wav
+TEXT
+no broadcast
+Your hero drinks from the goblet and reappears in your capital, completely restored to life.
+ENDTEXT
+CREATEUNIT
+owner=Merfolk
+unit=M Hero
+veteran=yes
+homecity=none
+locations
+28,58,1
+endlocations
+@ENDIF
+
+@IF
+UNITKILLED
+unit=G Great Goblin 
+attacker=anybody
+defender=Goblins
+@AND
+CHECKFLAG
+who=Goblins
+mask=0x78000000
+count=4
+state=on
+@THEN
+PLAYWAVEFILE
+Fanfare7.wav
+TEXT
+no broadcast
+Your hero drinks from the goblet and reappears in your capital, completely restored to life.
+ENDTEXT
+CREATEUNIT
+owner=Goblins
+unit=G Great Goblin
+veteran=yes
+homecity=none
+locations
+60,64,2
+endlocations
+@ENDIF
+
+@IF
+UNITKILLED
+unit=S Lord
+attacker=anybody
+defender=Stygians
+@AND
+CHECKFLAG
+who=Stygians
+mask=0x78000000
+count=4
+state=on
+@THEN
+PLAYWAVEFILE
+Fanfare7.wav
+TEXT
+no broadcast
+Your hero drinks from the goblet and reappears in your capital, completely restored to life.
+ENDTEXT
+CREATEUNIT
+owner=Stygians
+unit=S Lord
+veteran=yes
+homecity=none
+locations
+87,137,2
+endlocations
+@ENDIF
+
+;Build Jack O'Lantern
+
+@IF
+CITYPRODUCTION
+builder=Anybody
+unit=Jack O'Lantern
+@THEN
+PLAYWAVEFILE
+Fanfare7.wav
+TEXT
+no broadcast
+The ability to build a Jack O'Lantern is steeped in ancient magic. As you place the pumpkin head on the
+branch-fashioned body, you feel a shudder in the mystical fabric emanating far to the south. A piece of
+parchment magically extrudes from the pumpkin's carved mouth.
+ENDTEXT
+FLAG
+continuous
+flag=7
+state=on
+@endif
+
+;Brian's Expedition
+
+@IF
+CITYPRODUCTION
+builder=Anybody
+improvement=52
+@THEN
+JUSTONCE
+DELAY
+randomize
+delay=30
+PLAYWAVEFILE
+Shortking.wav
+TEXT
+The entrepid explorer, Brian, returns home from an extraordinary voyage to the far corners of the world. 
+His tales of monsters and magic appear so fantastic that everyone who listens scoffs until he pulls out
+Huginn and Muninn, Odin's famous crows, who hear and see everything. He also claims to have found a
+submersible boat and a bit of parchment he believes is the oldest object he has ever beheld.
+ENDTEXT
+ENABLETECHNOLOGY
+whom=Triggerreceiver
+technology=76
+value=0
+CREATEUNIT
+owner=triggerreceiver
+unit=Shield Boat
+veteran=no
+homecity=none
+locations
+45,81,0
+86,76,0
+39,131,0
+48,10,0
+83,7,0
+endlocations
+FLAG
+continuous
+flag=8
+state=on
+@ENDIF
+
+;underworld secret passage
+
+@IF
+RECEIVEDTECHNOLOGY
+receiver=Anybody
+technology=38
+@THEN
+JUSTONCE
+PLAYWAVEFILE
+Fanfare7.wav
+TEXT
+Stuck among the leaves of a long-thought lost tome of the Niebelungenlied is discovered 
+an ancient map showing a tunnel maze. In the margin, some runic script is scrawled.
+ENDTEXT
+@ENDIF
+
+@IF
+RECEIVEDTECHNOLOGY
+receiver=Humans
+technology=38
+@AND
+RECEIVEDTECHNOLOGY
+receiver=Humans
+technology=44
+@THEN
+JUSTONCE
+FLAG
+who=Humans
+flag=10
+state=on
+@ENDIF
+
+@IF
+RECEIVEDTECHNOLOGY
+receiver=Elves
+technology=38
+@AND
+RECEIVEDTECHNOLOGY
+receiver=Elves
+technology=44
+@THEN
+JUSTONCE
+FLAG
+who=Elves
+flag=10
+state=on
+@ENDIF
+
+@IF
+RECEIVEDTECHNOLOGY
+receiver=Stygians
+technology=38
+@AND
+RECEIVEDTECHNOLOGY
+receiver=Stygians
+technology=44
+@THEN
+JUSTONCE
+FLAG
+who=Stygians
+flag=10
+state=on
+@ENDIF
+
+@IF
+RECEIVEDTECHNOLOGY
+receiver=Goblins
+technology=38
+@AND
+RECEIVEDTECHNOLOGY
+receiver=Goblins
+technology=44
+@THEN
+JUSTONCE
+FLAG
+who=Goblins
+flag=10
+state=on
+@ENDIF
+
+@IF
+RECEIVEDTECHNOLOGY
+receiver=Buteos
+technology=38
+@AND
+RECEIVEDTECHNOLOGY
+receiver=Buteos
+technology=44
+@THEN
+JUSTONCE
+FLAG
+who=Buteos
+flag=10
+state=on
+@ENDIF
+
+@IF
+RECEIVEDTECHNOLOGY
+receiver=Merfolk
+technology=38
+@AND
+RECEIVEDTECHNOLOGY
+receiver=Merfolk
+technology=44
+@THEN
+JUSTONCE
+FLAG
+who=Merfolk
+flag=10
+state=on
+@ENDIF
+
+@IF
+RECEIVEDTECHNOLOGY
+receiver=Infidels
+technology=38
+@AND
+RECEIVEDTECHNOLOGY
+receiver=Infidels
+technology=44
+@THEN
+JUSTONCE
+FLAG
+who=Infidels
+flag=10
+state=on
+@ENDIF
+
+@IF
+CHECKFLAG
+Who=Somebody
+flag=10
+state=on
+@THEN
+JUSTONCE
+PLAYWAVEFILE
+Fanfare7.wav
+TEXT
+no broadcast
+After examining an ancient reference on runes, you can now read the archaic words on the Niebelungenlied
+map. It says "Underground coordinates 118,140 and then the single word, "Dig".
+ENDTEXT
+FLAG
+flag=10
+state=off
+@ENDIF
+
+@IF
+UNITKILLED
+map=2
+unit=Elder Dragon
+attacker=anybody
+defender=Barbarians
+@THEN
+JUSTONCE
+PLAYWAVEFILE
+Shortking.wav
+TEXT
+no broadcast
+You discover a dragon's hoard of dwarven gold. Alas there is another piece of parchment. 
+The pieces you have accumulated so far seem to fit together but you can make nothing 
+of the writing. At the bottom of the pile of gold, you stumble upon a strange mirror which 
+reflects nothing.
+ENDTEXT
+CHANGETERRAIN
+terraintype=2
+map=2
+maprect
+116,138,120,138,120,142,116,142
+CHANGEMONEY
+receiver=triggerattacker
+amount=3000
+FLAG
+flag=5
+state=on
+@ENDIF
+
+
+; The true ring and Ragnarok
+
+@IF
+FLAG
+flag=22
+state=on
+@THEN
+PLAYWAVEFILE
+Fanfare7.wav
+TEXT
+All of the races hold an emergency council to consider and recommend what 
+measures, if any, can be undertaken to stave off Volsang. After hours of 
+useless debate that usually occurs when no one has any ideas, a small 
+voice from the back squeaks, "We might try to find the legendary one 
+true ring." Everyone shouts in unison, "Why didn't I think of that? What 
+is the one true ring?" You recall the legend of the one ring which can 
+bring untold wealth and the power it can buy. You seem to be the only 
+one who also remembers that a curse was attached to it although you 
+never heard what it was about. It was lost at sea with the wreck of a 
+treasure ship. The council now disperses very pleased with itself. 
+ENDTEXT
+CHANGETERRAIN
+terraintype=2
+map=1
+maprect
+113,159,113,159,113,159,113,159
+CREATEUNIT
+owner=Barbarians
+unit=Flag unit
+veteran=no
+homecity=none
+locations
+113,159,1
+endlocations
+@ENDIF
+
+@IF
+FLAG
+flag=22
+state=on
+@THEN
+CREATEUNIT
+owner=Barbarians
+unit=S Skeleton
+veteran=no
+homecity=none
+locations
+113,159,1
+endlocations
+@ENDIF
+
+@IF
+UNITKILLED
+map=1
+unit=Flag unit
+attacker=Anybody
+defender=Barbarians
+@THEN
+JUSTONCE
+PLAYCDTRACK
+3
+TEXT
+no broadcast
+You've found the one, true Ring in the hold of the wrecked
+treasure ship. Obeying an irresistable urge, you put it on your
+forefinger. Suddenly the heavens burst open with a celestial 
+fireworks display that penetrates everywhere even to the bottom 
+of the sea. Whether this otherworldly phenomena presages good 
+or evil, only time will tell.
+ENDTEXT
+CHANGEMONEY
+receiver=triggerattacker
+amount=10000
+MODIFYREPUTATION
+who=Triggerattacker
+betray=0
+GIVETECHNOLOGY
+technology=90
+receiver=Stygians
+@ENDIF
+
+@IF
+RANDOMTURN
+denominator=16
+@THEN
+TAKETECHNOLOGY
+whom=Stygians
+technology=90
+@ENDIF
+
+@IF
+RANDOMTURN
+denominator=20
+@AND
+RECEIVEDTECHNOLOGY
+receiver=Stygians
+technology=90
+@THEN
+JUSTONCE
+PLAYWAVEFILE
+Rangarok.wav
+TEXT
+Putting on the true ring has unleashed the cataclysmic battle,
+Ragnarok, between the gods and the titans of the frozen north. 
+The outcome is inevitable and the titans win. Midgard is turned 
+into a frozen wasteland.
+ENDTEXT
+CHANGEMONEY
+receiver=triggerattacker
+amount=-10000
+MODIFYREPUTATION
+who=Triggerattacker
+betray=7
+CHANGETERRAIN
+terraintype=7
+map=0
+exceptionmask=0x04E1
+maprect
+0,0,121,0,121,161,0,161
+GIVETECHNOLOGY
+technology=90
+receiver=Goblins
+@ENDIF
+
+@IF
+RECEIVEDTECHNOLOGY
+receiver=Goblins
+technology=90
+@THEN
+JUSTONCE
+CHANGETERRAIN
+terraintype=7
+map=1
+exceptionmask=0x4E2
+maprect
+0,0,149,0,149,119,0,119
+@ENDIF
+
+@IF
+RECEIVEDTECHNOLOGY
+receiver=Goblins
+technology=90
+@THEN
+JUSTONCE
+CHANGETERRAIN
+terraintype=4
+map=2
+exceptionmask=0x449
+maprect
+0,0,149,0,149,119,0,119
+@ENDIF
+
+@IF
+RECEIVEDTECHNOLOGY
+receiver=Goblins
+technology=90
+@THEN
+JUSTONCE
+CHANGETERRAIN
+terraintype=10
+map=3
+exceptionmask=0x323
+maprect
+0,0,149,0,149,119,0,119
+@ENDIF
+
+;Fairy
+
+@IF
+RANDOMTURN
+denominator=33
+@THEN
+PLAYWAVEFILE
+Fanfare7.wav
+TEXT
+Stories are circulating everywhere that fairies have been spotted flittering about the neighborhood. If only
+you can convince one of these magical beings to become a friend, you know you will greatly benefit from
+its knowledge and magical abilities.
+ENDTEXT
+CREATEUNIT
+owner=Barbarians
+unit=Fairy 
+veteran=no
+homecity=none
+count=4
+randomize
+locations
+120,82,0
+93,65,0
+41,133,0
+92,124,0
+30,66,0
+65,41,0
+51,69,0
+65,99,0
+75,51,0
+60,66,0
+endlocations
+@ENDIF
+
+@IF
+BRIBEUNIT
+who=anybody
+whom=barbarians
+unittype=47
+@THEN
+GIVETECHNOLOGY
+technology=24
+receiver=triggerattacker
+TEXT
+no broadcast
+The fairy teaches you the magical Song of Dreya. Chanting the last syllable, your mind is suddenly filled
+with magical notions you never knew before.
+ENDTEXT
+@ENDIF
+
+; Learn war magic
+
+@IF
+UNITKILLED
+unit=Jrmngnd Spit
+attacker=Anybody
+defender=Barbarians
+@THEN
+TEXT
+no broadcast
+The evil stench of the dead spit fills your head with arcane knowledge.
+ENDTEXT
+GIVETECHNOLOGY
+technology=61
+receiver=triggerattacker
+@ENDIF
+
+;Discovering Bifrost - we need to present a similar message upon conquering the world.
+
+@IF
+CHECKFLAG
+WHO=EVERYBODY
+mask=0x000003FF
+threshold=10
+state=on
+@AND
+RECEIVEDTECHNOLOGY
+receiver=ANYBODY
+technology=79
+@THEN
+JUSTONCE
+PLAYWAVEFILE
+Shortking.wav
+TEXT
+For reasons you still don't fully understand, you hold an emergency meeting with the other races, collect all 
+of the fragments found, and look at the pieced together parchment by its reflection in Glorianda's Mirror. 
+You can read a comprehensible message! It says, "To the reader of this document, We, the gods of Asgard, 
+foresaw the returning power of Volsang many centuries ago so devised a test to determine the worthiness 
+of the inhabitants to procure our aid. You have met the challenge and are a true hero of Midgard. You must 
+undergo one final test, however. Find Bifrost, the rainbow bridge that leads to our home and we will help 
+you defeat Volsang forever."
+ENDTEXT
+CHANGETERRAIN
+terraintype=7
+map=0
+maprect
+51,87,51,87,51,89,51,89
+@ENDIF
+
+@IF
+CHECKFLAG
+WHO=EVERYBODY
+mask=0x000003FF
+threshold=10
+state=on
+@AND
+RECEIVEDTECHNOLOGY
+receiver=ANYBODY
+technology=79
+@THEN
+JUSTONCE
+CREATEUNIT
+owner=Barbarians
+unit=Flag Unit
+veteran=no
+homecity=none
+locations
+51,89,0
+endlocations
+@ENDIF
+
+@IF
+UNITKILLED
+unit=Flag Unit
+attacker=Anybody
+defender=Barbarians
+@AND
+CHECKFLAG
+WHO=EVERYBODY
+mask=0x000003FF
+threshold=10
+state=on
+@THEN
+JUSTONCE
+PLAYWAVEFILE
+Fanfare7.wav
+TEXT
+no broadcast
+In one last desperate attempt to prevent you speaking with the gods, Volsang teleports his chief lieutenant
+to block your passage across Bifrost.
+ENDTEXT
+@ENDIF
+
+@IF
+UNITKILLED
+unit=Flag Unit
+attacker=Anybody
+defender=Barbarians
+@AND
+CHECKFLAG
+WHO=EVERYBODY
+mask=0x000003FF
+threshold=10
+state=on
+@THEN
+CREATEUNIT
+owner=Barbarians
+unit=Unsp. Horror
+veteran=yes
+homecity=none
+locations
+51,89,0
+endlocations
+@ENDIF
+
+@IF
+UNITKILLED
+unit=Unsp. Horror
+attacker=Anybody
+defender=Barbarians
+@AND
+CHECKFLAG
+WHO=EVERYBODY
+mask=0x000003FF
+threshold=10
+state=on
+@THEN
+GIVETECHNOLOGY
+technology=99
+receiver=triggerattacker
+@ENDIF
+
+;Nirvana victory
+
+@IF
+RECEIVEDTECHNOLOGY
+receiver=anybody
+futuretech=20
+@AND
+RANDOMTURN
+denominator=20
+@THEN
+PLAYCDTRACK
+3
+TEXT
+no broadcast
+While hanging from Yggdrasil, the tree of life, you involuntarily begin to recite a magical incantation. At
+its conclusion, you see in your mind's eye the precise location of Bifrost. 
+ENDTEXT
+GIVETECHNOLOGY
+technology=99
+receiver=triggerreceiver
+@ENDIF
+
+@IF
+RECEIVEDTECHNOLOGY
+receiver=anybody
+technology=99
+@THEN
+CHANGETERRAIN
+terraintype=3
+map=0
+exceptionmask=0x0624 
+maprect
+0,0,121,0,121,161,0,161
+TEXT
+Someone has found Bifrost, the rainbow bridge that leads to Asgard, the home of the gods. He convinces 
+Odin, the chief god, to join your cause and, with his support, the races easily overcome the evil wizard, 
+Volsang, and expel him from Midgard forever. THE HERO OF BIFROST IS DECLARED THE
+SAVIOR OF MIDGARD AND HAS WON THE GAME!
+ENDTEXT
+ENDGAME
+endscreens=yes
+PLAYAVIFILE
+Scene8.avi
+@ENDIF
+
+;the great siege engine
+
+@IF
+ALPHACENTAURIARRIVAL
+race=anybody
+size=1
+@THEN
+TEXT
+After a long journey filled with many delays and perils, the siege engine launches the infernal sphere at
+Volsang's fortress. Volsang is hurled through the atmosphere beyond all the planes of existence. There is
+great celebration everywhere as Volsang's evil fortress is torn asunder. The magicians wag their heads
+however and are heard to mutter, "He was not sent far enough. He could return in less than a lifetime."
+EVERYONE CONGRATULATES THE HERO WHO BUILT THE GREAT SIEGE ENGINE. HE HAS SAVED MIDGARD THOUGH HIS VICTORY MIGHT HAVE BEEN MORE COMPLETE IF HE
+HAD FASHIONED A LARGER WEAPON!
+ENDTEXT
+ENDGAME
+endscreens=yes
+@ENDIF
+
+@IF
+ALPHACENTAURIARRIVAL
+race=anybody
+size=2
+@THEN
+TEXT
+After a long journey filled with many delays and perils, the siege engine launches the infernal sphere at
+Volsang's fortress. Volsang is hurled through the atmosphere beyond all the planes of existence. There is
+great celebration everywhere as Volsang's evil fortress is torn asunder. The magicians wag their heads
+however and are heard to mutter, "He was not sent far enough. He could return in less than two lifetimes."
+EVERYONE CONGRATULATES THE HERO WHO BUILT THE GREAT SIEGE ENGINE. HE HAS SAVED MIDGARD THOUGH HIS VICTORY MIGHT HAVE BEEN MORE COMPLETE IF HE
+HAD FASHIONED A LARGER WEAPON!
+ENDTEXT
+ENDGAME
+endscreens=yes
+@ENDIF
+
+@IF
+ALPHACENTAURIARRIVAL
+race=anybody
+size=3
+@THEN
+TEXT
+After a long journey filled with many delays and perils, the siege engine launches the infernal sphere at
+Volsang's fortress. Volsang is hurled through the atmosphere beyond all the planes of existence. There is
+great celebration everywhere as Volsang's evil fortress is torn asunder. The magicians wag their heads
+however and are heard to mutter, "He was not sent far enough. He could return in less than three lifetimes."
+EVERYONE CONGRATULATES THE HERO WHO BUILT THE GREAT SIEGE ENGINE. HE HAS SAVED MIDGARD THOUGH HIS VICTORY MIGHT HAVE BEEN MORE COMPLETE IF HE
+HAD FASHIONED A LARGER WEAPON!
+ENDTEXT
+ENDGAME
+endscreens=yes
+@ENDIF
+
+@IF
+ALPHACENTAURIARRIVAL
+race=anybody
+size=4
+@THEN
+TEXT
+After a long journey filled with many delays and perils, the siege engine launches the infernal sphere at
+Volsang's fortress. Volsang is hurled through the atmosphere beyond all the planes of existence. There is
+great celebration everywhere as Volsang's evil fortress is torn asunder. The magicians nod their heads in
+approval.. "You have rid us of Volsang forever.", they cry.
+EVERYONE CONGRATULATES THE HERO WHO BUILT THE GREAT SIEGE ENGINE. HE HAS SAVED MIDGARD FOREVER AND WON A COMPLETE VICTORY!!
+ENDTEXT
+ENDGAME
+endscreens=yes
+@ENDIF
+
+; Volsang's Final Victory
+
+@IF
+RECEIVEDTECHNOLOGY
+receiver=Humans
+technology=63
+@THEN
+JUSTONCE
+DELAY
+randomize
+delay=70
+TEXT
+You are too late! Volsang finally breaks free and enslaves Midgard with his powerful magic. Not even the
+Gods can help you now. YOU HAVE LOST THE GAME!
+ENDTEXT
+PLAYAVIFILE
+Scene9.avi
+ENDGAME
+endscreens=yes
+@ENDIF
+
+@ENDEVENTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,38 @@
+flags 0 to 9 slow Volsang
+Flags 0 to 8 are checked after taking all capitals
+Flags 27 through 30 - gems - required to respawn hero
+
+Flag 0: Flytrap island
+Flag 1: Kill Elder dragon on surface
+Flag 2: Kill unspeakable horror
+Flag 3: Kill worm
+Flag 4: Bribe frost giant
+Flag 5: Kill Elder Dragon in underworld
+Flag 6: Kill Barrow Wight with flag (Dwarven hoard)
+Flag 7: Build Jack O'Lantern
+Flag 8: Brian's Expedition
+Flag 9: Rot destroyed
+Flag 10: Niebelungenlied dig
+
+Flag 11: Griffin spawn ( off = ally )
+Flag 12: Human capital taken
+Flag 13: Infidel capital taken
+Flag 14: Elf capital taken
+Flag 15: Buteo capital taken
+Flag 16: Merfolk capital taken
+Flag 17: Goblin capital taken
+Flag 18: Stygian capital taken
+Flag 19: Volsang stage 1 - starts dwarves
+Flag 20: Volsang stage 2
+Flag 21: Volsang stage 3
+Flag 22: Volsang stage 4
+Flag 23: Volsang stage 5 (6 is marked with a tech)
+Flag 24: Griffin spawn for player
+Flag 25: Barrow wights stopped
+Flag 26: Barbarian production, Turned off after taking all capitals
+
+Flag 27: Rot destroyed (goblet)
+Flag 28: Flytrap island (ruby)
+Flag 29: Prince tree (gem)
+Flag 30: Kill unspeakable horror (emerald)
+Flag 31: Frost giants spawn
